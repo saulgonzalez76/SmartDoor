@@ -1,0 +1,65 @@
+/* CSS Document */
+
+#translucent {
+ opacity: 0.32;
+ filter:alpha(opacity: 32);
+ -moz-opacity: 0.32;
+ -khtml-opacity: 0.32;
+ width:800px;
+ height:150px;
+background-color: #3333FF; 
+    border: 1px solid #3333FF;
+}
+  
+.r {
+	color: red;
+}
+
+.g {
+	color: green;
+}
+
+body {
+    background-color: #ffffff;
+	font: 76%/1.4 tahoma, verdana, arial, helvetica, sans-serif;
+}
+
+
+#menu:link, #menu:visited{
+	text-decoration:none;
+	color:#990000;
+	font-size:14px;
+}
+
+#menu:active{
+	text-decoration:blink;
+	color:#990000;
+	font-size:14px;
+}
+
+#menu:hover{
+	text-decoration:underline;
+	color:#990000;
+	font-size:14px;
+}
+
+
+a:link, a:visited{
+	text-decoration:none;
+	color:#990000;
+	font-size:10px;
+}
+
+a:active{
+	text-decoration:blink;
+	color:#990000;
+	font-size:10px;
+}
+
+a:hover{
+	text-decoration:underline;
+	color:#990000;
+	font-size:10px;
+}
+ 
+/* CSS Document */

@@ -1,0 +1,24 @@
+
+.Menu {
+	text-decoration:none;
+	color:#990000;
+	font-size:12px;
+}
+
+.Menu:link, Menu:visited{
+	text-decoration:none;
+	color:#990000;
+	font-size:12px;
+}
+
+.Menu:active{
+	text-decoration:blink;
+	color:#990000;
+	font-size:12px;
+}
+
+.Menu:hover{
+	text-decoration:underline;
+	color:#990000;
+	font-size:12px;
+}

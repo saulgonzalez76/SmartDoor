@@ -1,0 +1,9 @@
+/* CSS Document */
+
+.men_abajo_izq {background: url(../img/mensajes/abajo_izq.gif) 0 100% no-repeat #e68200}
+.men_abajo_der {background: url(../img/mensajes/abajo_der.gif) 100% 100% no-repeat}
+.men_arriba_izq {background: url(../img/mensajes/arriba_izq.gif) 0 0 no-repeat}
+.men_arriba_der {background: url(../img/mensajes/arriba_der.gif) 100% 0 no-repeat; padding:10px}
+.men_clear {font-size: 1px; height: 1px}
+
+/* CSS Document */

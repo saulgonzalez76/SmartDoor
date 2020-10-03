@@ -1,0 +1,206 @@
+
+.container {
+   margin: 10px auto;
+  text-align: center;
+   position: fixed; 
+    left: 5px;
+    padding: 10px 20px 20px 20px; 
+    width:auto;
+    float: bottom; 
+    background-color: #333;
+    z-index: 100;
+    top: 55px;
+}
+
+.cal {
+  position: relative;
+  padding: 4px;
+  font-weight: bold;
+  background: #bebfc0;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  display: inline-block;
+  vertical-align: baseline;
+  zoom: 1;
+  *display: inline;
+  *vertical-align: auto;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.4);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.4);
+}
+.cal:before {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 4px;
+  right: 4px;
+  height: 6px;
+  background: #d9d9d9;
+  border: 1px solid #909090;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+.cal a {
+  text-decoration: none;
+}
+
+.cal a:hover{
+  color: #000000;
+  font-size: 24px;
+}
+
+.cal tr:first-child td {
+  border-top: 0;
+}
+.cal td:first-child {
+  border-left: 0;
+}
+.cal tr:first-child a {
+  border-top: 0;
+  margin-top: 0;
+}
+.cal tr:last-child a {
+  border-bottom: 0;
+  margin-bottom: 0;
+}
+.cal td:first-child a {
+  border-left: 0;
+  margin-left: 0;
+}
+.cal td:last-child a {
+  border-right: 0;
+  margin-right: 0;
+}
+.cal tr:last-child td:first-child a {
+  border-radius: 0 0 0 3px;
+}
+.cal tr:last-child td:last-child a {
+  border-radius: 0 0 3px 0;
+}
+
+.cal-table {
+  position: relative;
+  margin: 0 0 1px;
+  border-collapse: separate;
+  border-left: 1px solid #979797;
+  border-right: 1px solid #979797;
+  border-bottom: 1px solid #bbb;
+  border-radius: 0 0 3px 3px;
+  -webkit-box-shadow: 1px 0 rgba(0, 0, 0, 0.1), -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 0 rgba(0, 0, 0, 0.1), -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cal-caption {
+  width: 100%;
+  padding-bottom: 1px;
+  line-height: 32px;
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
+  background: #629c2e;
+  border-radius: 3px 3px 0 0;
+  background-image: -webkit-linear-gradient(top, #89c84d, #629c2e 75%, #548d20);
+  background-image: -moz-linear-gradient(top, #89c84d, #629c2e 75%, #548d20);
+  background-image: -o-linear-gradient(top, #89c84d, #629c2e 75%, #548d20);
+  background-image: linear-gradient(to bottom, #89c84d, #629c2e 75%, #548d20);
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px rgba(0, 0, 0, 0.1), inset 0 2px rgba(255, 255, 255, 0.25), 0 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 1px rgba(0, 0, 0, 0.1), inset 0 2px rgba(255, 255, 255, 0.25), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.cal-caption a {
+  line-height: 30px;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: normal;
+  color: white;
+}
+.cal-caption .prev {
+  float: left;
+}
+.cal-caption .next {
+  float: right;
+}
+
+.cal-body td {
+  width: 30px;
+  font-size: 11px;
+  border-top: 1px solid #eaeaea;
+  border-left: 1px solid #eaeaea;
+}
+.cal-body a {
+  display: block;
+  position: relative;
+  line-height: 28px;
+  color: #555;
+  text-align: center;
+  background: white;
+}
+.cal-body a:hover {
+  background: #fafafa;
+}
+
+.cal-off a {
+  color: #ccc;
+  font-weight: normal;
+}
+
+.cal-today a{
+  color: black;
+  background: #979797;
+  background-image: -webkit-linear-gradient(top, whitesmoke, silver 90%);
+  background-image: -moz-linear-gradient(top, whitesmoke, silver 90%);
+  background-image: -o-linear-gradient(top, whitesmoke, silver 90%);
+  background-image: linear-gradient(to bottom, whitesmoke, silver 90%);
+}
+
+.cal-pasado {
+  width: 100%;
+  padding-bottom: 1px;
+  line-height: 32px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+  font-size: 24px;
+  background: #629c2e;
+  background-image: -webkit-linear-gradient(top, whitesmoke, silver 90%);
+  background-image: -moz-linear-gradient(top, whitesmoke, silver 90%);
+  background-image: -o-linear-gradient(top, whitesmoke, silver 90%);
+  background-image: linear-gradient(to bottom, whitesmoke, silver 90%);
+}
+
+.cal-selected a, .cal-body a:active {
+  margin: -1px;
+  color: #ffffff;
+  background: #ff6c00;
+  border: 1px solid #e7d4d4;
+}
+
+.cal-check a {
+  color: #f79901;
+  overflow: hidden;
+}
+.cal-check a:before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 12px;
+  height: 12px;
+  background: #ffb83b;
+  background-image: -webkit-linear-gradient(top, #ffb83b, #ff6c00);
+  background-image: -moz-linear-gradient(top, #ffb83b, #ff6c00);
+  background-image: -o-linear-gradient(top, #ffb83b, #ff6c00);
+  background-image: linear-gradient(to bottom, #ffb83b, #ff6c00);
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.lt-ie8 .cal-table {
+  *border-collapse: collapse;
+}
+.lt-ie8 .cal-body a {
+  zoom: 1;
+}

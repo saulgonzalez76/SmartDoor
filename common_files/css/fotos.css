@@ -1,0 +1,26 @@
+/*core drop shadow rules*/
+.wrap1, .wrap2, .wrap3 {
+	display:inline-table;
+	/* \*/display:block;/**/} 
+.wrap1 {
+	float:left;
+	background:url(#) right bottom no-repeat;}
+.wrap2 {background:url(#) left bottom no-repeat;}
+.wrap3 {
+	padding:0 8px 8px 0;
+	background:url(#) right top no-repeat;}
+.wrap3 img {
+	display:block;
+	border:0px solid #ccc;
+	border-color:#ffffff #ffffff #ffffff #ffffff;}
+
+#v3 .wrap1 {background:url(#) right bottom no-repeat;}
+#v3 .wrap2 {background:url(#) -12px 100% no-repeat;}
+#v3 .wrap3 {
+	padding:0 9px 9px 0;
+	background:url(#) 100% -12px no-repeat;}
+.example {clear:both;margin:20px 0;}
+.example p{position:relative;left:30px;}
+.example a {font-weight: normal !important;}
+.Estilo1 {color: #990000}
+.Estilo3 {color: #990000; font-size: 24px; }
