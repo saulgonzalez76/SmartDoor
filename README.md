@@ -2,12 +2,12 @@
 SmartDoor are software apps to make any electronic door a smart door by giving the ability to communicate to a server and record all entries.
 <br><br>
 
-##Description
+## Description
 SmartDoor is an Open Source software that enables any electric door handle,
 gatekeeper or any device that uses an electronic aperture to become smart. It records all entries, can handle schedules for employees, visits or random entries, send invites to friends via Whatsapp or email with an android app using qr codes with time limits or permanent access.
 
 <br><br>
-##Specs
+## Specs
 [Arduino sketch](esp8266/sketch_arduino)<br>
 [Android webservice](android)<br>
 [Raspberry pi scripts](puerta_scripts)<br>
@@ -19,7 +19,7 @@ gatekeeper or any device that uses an electronic aperture to become smart. It re
 ##Hardware sketch
 ![alt text](Sketch%20SmartDoor.jpg)<br>
 <br><br>
-##Example
+## Example
 I made this using other hadware components, but the result is the same, if you want to use
 Raspberry Pi or equivalent just replace the Esp8266 module.<br>
 ![Example](circuit.jpg)<br>
