@@ -20,15 +20,16 @@ include($_SERVER['DOCUMENT_ROOT'] . '/config.php');
 include("../common_files/clases/base_datos.php");
 $clsBaseDatos = new Base_Datos();
 $estaciones = "";
-if (null !== (filter_input(INPUT_GET, 'gid'))) { $gid = filter_input(INPUT_GET, 'gid'); }
+if (null !== (filter_input(INPUT_GET, 'id'))) { $id = filter_input(INPUT_GET, 'id'); }
+if (null !== (filter_input(INPUT_GET, 'acceso'))) { $acceso = filter_input(INPUT_GET, 'acceso'); }
 if (null !== (filter_input(INPUT_GET, 'nombre'))) { $nombre = filter_input(INPUT_GET, 'nombre'); }
 if (null !== (filter_input(INPUT_GET, 'apellido'))) { $apellido = filter_input(INPUT_GET, 'apellido'); }
 if (null !== (filter_input(INPUT_GET, 'foto'))) { $foto = filter_input(INPUT_GET, 'foto'); }
 if (null !== (filter_input(INPUT_GET, 'email'))) { $email = filter_input(INPUT_GET, 'email'); }
 if (null !== (filter_input(INPUT_GET, 'token'))) { $token = filter_input(INPUT_GET, 'token'); }
-if($gid !== ""){
-    $estaciones = $clsBaseDatos->login_android_gid($gid);
-    if ($estaciones === "") $clsBaseDatos->login_android_registro_gid($gid,$nombre,$foto,$email,$apellido,$token);
+if (null !== (filter_input(INPUT_GET, 'version'))) { $version = filter_input(INPUT_GET, 'version'); }
+if($id !== ""){
+    $estaciones = $clsBaseDatos->login_android_gid($id,$acceso,$nombre,$foto,$email,$apellido,$token,$version);
 }
 echo $estaciones;
 ?>

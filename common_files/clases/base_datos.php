@@ -111,21 +111,62 @@ class Base_Datos {
         return $retorno;
     }
 
-    public function login_android_registro_gid($gid,$nombre,$foto,$email,$apellido,$token){
-        $sql = "select * from tblCliente where go_id = '$gid'";
-        $sth = $this->conexion->prepare($sql);
-        $sth->execute();  $sth->setFetchMode(PDO::FETCH_NUM);
-        if (!$row = $sth->fetch()){
-            $sql = "insert into tblCliente values (0,'$email','$nombre','$apellido','',0,'','$gid','0.00','$foto','$token','" . date("Y-m-d H:i:s") . "',0)";
-            $sth = $this->conexion->prepare($sql);
-            $sth->execute();
+    public function login_android_registro_gid($id,$acceso,$nombre,$foto,$email,$apellido,$token,$version,$idcliente){
+        switch ($acceso) {
+            case 1:
+                // Facebook Login
+                // records user data to mysql if new user
+                if ($idcliente > 0) {
+                    $sql = "update tblCliente set email = '$email', fb_foto = '$foto', fb_token = '$token', app_version = '$version', actualizado = '" . date("Y-m-d H:i:s") . "', sync = 1 where idcliente = $idcliente";
+                    $sth = $this->conexion->prepare($sql);
+                    $sth->execute();
+                } else {
+                    $sql = "insert into tblCliente values (0,0,'$email','$nombre','$apellido','',0,'$id','','0.00','','','$foto','$token','$version','" . date("Y-m-d H:i:s") . "',0)";
+                    $sth = $this->conexion->prepare($sql);
+                    $sth->execute();
+                }
+                break;
+            case 2:
+                // Google Login
+                // records user data to mysql if new user
+                if ($idcliente > 0) {
+                    $sql = "update tblCliente set email = '$email', go_foto = '$foto', go_token = '$token', app_version = '$version', actualizado = '" . date("Y-m-d H:i:s") . "', sync = 1 where idcliente = $idcliente";
+                    $sth = $this->conexion->prepare($sql);
+                    $sth->execute();
+                } else {
+                    $sql = "insert into tblCliente values (0,0,'$email','$nombre','$apellido','',0,'','$id','0.00','$foto','$token','','','$version','" . date("Y-m-d H:i:s") . "',0)";
+                    $sth = $this->conexion->prepare($sql);
+                    $sth->execute();
+                }
+                break;
         }
         return 0;
     }
 
-    public function login_android_gid($gid){
+    public function login_android_gid($id,$acceso,$nombre,$foto,$email,$apellido,$token,$version){
+        $idcliente = 0;
+        // search email address to see if the user has an account
+        $sql = "select idcliente from tblCliente where email = '$email'";
+        $sth = $this->conexion->prepare($sql); $sth->execute();
+        if ($row = $sth->fetch()){
+            // if client exists then use the client id
+            $idcliente = $row[0];
+        }
+        // update client info or create a new record
+        $this->login_android_registro_gid($id,$acceso,$nombre,$foto,$email,$apellido,$token,$version,$idcliente);
+
+        // get all the access qr codes for client
         $retorno = "";
-        $sql = "select tblClientePuerta.codigo, tblPuerta.nombre, tblEstacion.nombre, tblEstacion.idraspberry from tblEstacion, tblCliente, tblClientePuerta, tblPuerta where tblCliente.go_id = '$gid' and tblClientePuerta.idcliente = tblCliente.idcliente and tblClientePuerta.invitado = '' and (tblClientePuerta.permanente = 1 || tblClientePuerta.vigencia > now()) and tblPuerta.idregistro = tblClientePuerta.idpuerta and tblEstacion.idraspberry = tblPuerta.idestacion";
+        switch ($acceso){
+            case 2:
+                // Google Login
+                $sql = "select tblClientePuerta.codigo, tblPuerta.nombre, tblEstacion.nombre, tblEstacion.idraspberry from tblEstacion, tblCliente, tblClientePuerta, tblPuerta where tblCliente.go_id = '$id' and tblClientePuerta.idcliente = tblCliente.idcliente and tblClientePuerta.invitado = '' and (tblClientePuerta.permanente = 1 || tblClientePuerta.vigencia > now()) and tblPuerta.idregistro = tblClientePuerta.idpuerta and tblEstacion.idraspberry = tblPuerta.idestacion";
+                break;
+                // Facebook Login
+            case 1:
+                $sql = "select tblClientePuerta.codigo, tblPuerta.nombre, tblEstacion.nombre, tblEstacion.idraspberry from tblEstacion, tblCliente, tblClientePuerta, tblPuerta where tblCliente.fb_id = '$id' and tblClientePuerta.idcliente = tblCliente.idcliente and tblClientePuerta.invitado = '' and (tblClientePuerta.permanente = 1 || tblClientePuerta.vigencia > now()) and tblPuerta.idregistro = tblClientePuerta.idpuerta and tblEstacion.idraspberry = tblPuerta.idestacion";
+                break;
+        }
         $sth = $this->conexion->prepare($sql);
         $sth->execute();
         $sth->setFetchMode(PDO::FETCH_NUM);
