@@ -157,16 +157,7 @@ class Base_Datos {
 
         // get all the access qr codes for client
         $retorno = "";
-        switch ($acceso){
-            case 2:
-                // Google Login
-                $sql = "select tblClientePuerta.codigo, tblPuerta.nombre, tblEstacion.nombre, tblEstacion.idraspberry from tblEstacion, tblCliente, tblClientePuerta, tblPuerta where tblCliente.go_id = '$id' and tblClientePuerta.idcliente = tblCliente.idcliente and tblClientePuerta.invitado = '' and (tblClientePuerta.permanente = 1 || tblClientePuerta.vigencia > now()) and tblPuerta.idregistro = tblClientePuerta.idpuerta and tblEstacion.idraspberry = tblPuerta.idestacion";
-                break;
-                // Facebook Login
-            case 1:
-                $sql = "select tblClientePuerta.codigo, tblPuerta.nombre, tblEstacion.nombre, tblEstacion.idraspberry from tblEstacion, tblCliente, tblClientePuerta, tblPuerta where tblCliente.fb_id = '$id' and tblClientePuerta.idcliente = tblCliente.idcliente and tblClientePuerta.invitado = '' and (tblClientePuerta.permanente = 1 || tblClientePuerta.vigencia > now()) and tblPuerta.idregistro = tblClientePuerta.idpuerta and tblEstacion.idraspberry = tblPuerta.idestacion";
-                break;
-        }
+        $sql = "select tblClientePuerta.codigo, tblPuerta.nombre, tblEstacion.nombre, tblEstacion.idraspberry from tblEstacion, tblCliente, tblClientePuerta, tblPuerta where tblCliente.email = '$email' and tblClientePuerta.idcliente = tblCliente.idcliente and tblClientePuerta.invitado = '' and (tblClientePuerta.permanente = 1 || tblClientePuerta.vigencia > now()) and tblPuerta.idregistro = tblClientePuerta.idpuerta and tblEstacion.idraspberry = tblPuerta.idestacion";
         $sth = $this->conexion->prepare($sql);
         $sth->execute();
         $sth->setFetchMode(PDO::FETCH_NUM);
